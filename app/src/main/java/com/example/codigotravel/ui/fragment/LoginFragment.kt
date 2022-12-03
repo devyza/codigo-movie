@@ -39,7 +39,9 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(
         }
     }
 
-    private fun setUpObservers() {
+    override fun setUpObservers() {
+        super.setUpObservers()
+
         loginFragmentViewModel.message.observe(viewLifecycleOwner) {
             it?.let {
                 showToast(it)

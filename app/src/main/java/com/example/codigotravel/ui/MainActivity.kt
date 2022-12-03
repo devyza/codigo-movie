@@ -18,6 +18,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (!onSupportNavigateUp()) finish()
+        finish()
     }
 }

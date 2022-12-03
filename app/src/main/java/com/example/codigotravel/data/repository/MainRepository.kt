@@ -1,10 +1,9 @@
 package com.example.codigotravel.data.repository
 
-import android.content.Context
 import com.example.codigotravel.data.source.local.LocalDataSource
 import com.example.codigotravel.data.source.remote.RemoteDataSource
 
-class MainRepository(context: Context) {
+class MainRepository {
 
     private val remote: RemoteDataSource = RemoteDataSource()
     private val local: LocalDataSource = LocalDataSource()
