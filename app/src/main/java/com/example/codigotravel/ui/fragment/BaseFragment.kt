@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.example.codigotravel.data.repository.MainRepository
+import com.example.codigotravel.ui.component.ProgressDialog
 import com.example.codigotravel.ui.viewmodel.MainViewModel
 import com.example.codigotravel.ui.viewmodel.ViewModelFactory
 
@@ -21,10 +22,13 @@ open class BaseFragment<VB: ViewBinding>(
 
     private val mainViewModel: MainViewModel by activityViewModels()
 
+    internal lateinit var progressDialog: ProgressDialog
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = bindingInflater.invoke(inflater)
+        progressDialog = ProgressDialog(requireContext())
         return binding.root
     }
 

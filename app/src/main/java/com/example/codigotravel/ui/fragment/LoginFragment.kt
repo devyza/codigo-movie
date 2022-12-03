@@ -46,6 +46,10 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(
                 loginFragmentViewModel.resetMessage()
             }
         }
+        loginFragmentViewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it) progressDialog.show()
+            else progressDialog.hide()
+        }
     }
 
     private fun checkInputs(): Boolean {

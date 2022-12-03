@@ -13,6 +13,7 @@ class LoginViewModel(private val repository: MainRepository): BaseViewModel() {
 
     fun login(userName: String, password: String) {
         viewModelScope.launch {
+            toggleLoading()
             when (val result = repository.login(userName, password)) {
                 is DataResult.Success -> {
                     isLoginSuccess.value = true
@@ -22,6 +23,7 @@ class LoginViewModel(private val repository: MainRepository): BaseViewModel() {
                     _message.value = result.toString()
                 }
             }
+            toggleLoading()
         }
     }
 }

@@ -9,14 +9,14 @@ open class BaseViewModel: ViewModel() {
     val message get() = _message
 
     private var _isLoading = MutableLiveData(false)
-    private val isLoading get() = _isLoading
+    val isLoading get() = _isLoading
 
     fun resetMessage() {
         _message.value = null
     }
 
     fun toggleLoading() {
-        _isLoading.value?.let {
+        isLoading.value?.let {
             _isLoading.value = !it
         }
     }
