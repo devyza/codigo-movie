@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">Codigo Travel</string>
+    <string name="app_name">Codigo Movie</string>
+    <string name="action_login_email">Login in with email address</string>
+    <string name="action_create_account">Create a new account</string>
+    <string name="action_create_account_confirm">Create my account now</string>
+    <string name="message_almost_there">Almost there!</string>
+    <string name="message_complete_the_form">Complete the form below to create your Ready</string>
+    <string name="title_first_name">First Name</string>
+    <string name="title_last_name">Last Name</string>
+    <string name="title_email">Email Address</string>
+    <string name="title_dob">Date of Birth</string>
+    <string name="title_nationality">Nationality</string>
+    <string name="title_gender_femail">Female</string>
+    <string name="title_gender_male">Male</string>
+    <string name="title_country">Country of Residence</string>
+    <string name="title_mobile">Mobile no. (Optional)</string>
+    <string name="message_search">What are you looking for?</string>
+    <string name="action_search_movies">Search Movies</string>
+    <string name="title_movies_recommended">Recommended</string>
+    <string name="title_upcoming_movies">Upcoming Movies</string>
+    <string name="title_movie">Movie</string>
+    <string name="txt_email">Email</string>
+    <string name="title_password">Password</string>
 </resources>
