@@ -1,5 +1,7 @@
 package com.example.codigotravel.data.source.remote
 
+import com.example.codigotravel.data.source.remote.dto.DataResponse
+import com.example.codigotravel.data.source.remote.dto.MovieListResponse
 import com.example.codigotravel.data.source.remote.dto.SessionRequest
 import com.example.codigotravel.data.source.remote.dto.TokenResponse
 import retrofit2.Response
@@ -21,4 +23,23 @@ interface RetrofitService {
         @Body sessionRequest: SessionRequest,
     ): Response<TokenResponse>
 
+    @POST("/3/authentication/session")
+    suspend fun deleteSession(
+        @Query("api_key") api_key: String,
+        @Body sessionId: String,
+    ): Response<DataResponse>
+
+    @POST("/3/movie/changes")
+    suspend fun getRecommendations(
+        @Query("api_key") api_key: String,
+        @Query("language") language: String?,
+        @Query("page") page: Int?,
+    ): Response<MovieListResponse>
+
+    @POST("/3/movie/upcoming")
+    suspend fun getUpComingMovies(
+        @Query("api_key") api_key: String,
+        @Query("language") language : String?,
+        @Query("page") page: Int?,
+    ): Response<DataResponse>
 }

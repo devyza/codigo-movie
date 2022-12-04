@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.example.codigotravel.R
 import com.example.codigotravel.data.repository.MainRepository
+import com.example.codigotravel.data.repository.PreferencesRepository
+import com.example.codigotravel.data.repository.dataStore
 import com.example.codigotravel.ui.component.ProgressDialog
 import com.example.codigotravel.ui.viewmodel.MainViewModel
 import com.example.codigotravel.ui.viewmodel.ViewModelFactory
@@ -19,7 +21,7 @@ open class BaseFragment<VB: ViewBinding>(
     private val bindingInflater: (inflater: LayoutInflater) -> VB
 ): Fragment() {
 
-    internal val mainViewModel: MainViewModel by activityViewModels {  MainViewModel.Factory }
+    private val mainViewModel: MainViewModel by activityViewModels {  MainViewModel.Factory }
 
     private var _binding: VB? = null
     internal val binding get() = _binding!!
@@ -40,7 +42,9 @@ open class BaseFragment<VB: ViewBinding>(
     }
 
     override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory {
-        return ViewModelFactory(MainRepository())
+        return ViewModelFactory(MainRepository(
+            PreferencesRepository(requireActivity().dataStore)
+        ))
     }
 
     open fun setUpObservers() {

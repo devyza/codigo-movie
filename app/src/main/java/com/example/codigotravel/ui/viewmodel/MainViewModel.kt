@@ -32,9 +32,10 @@ class MainViewModel(
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
+                val prefRepository = PreferencesRepository(this[APPLICATION_KEY]!!.dataStore)
                 MainViewModel(
-                    MainRepository(),
-                    PreferencesRepository(this[APPLICATION_KEY]!!.dataStore),
+                    MainRepository(prefRepository),
+                    prefRepository
                 )
             }
         }
